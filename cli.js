@@ -28,11 +28,9 @@ var cli = meow({
     '        Specifies the sandbox environment, hostname will be set automatically',
     '',
     '  --badge',
-    '        (default 0)',
     '        The value to specify for `payload.aps.badge`',
     '',
     '  --sound',
-    '        (default `ping.aiff`)',
     '        The value to specify for `payload.aps.sound`',
     '',
     '  --payload',
@@ -49,7 +47,6 @@ var cli = meow({
 
 if(!cli.input[0]){
   console.log('No notification message body was provided');
-  return process.exit(1);
 }
 
 if(cli.flags.development){
@@ -91,4 +88,3 @@ apnTest(cli.input[0], cli.flags, function(connection) {
 
   connection.on('socketError', console.error);
 });
-

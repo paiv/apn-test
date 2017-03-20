@@ -39,9 +39,9 @@ module.exports = function(message, options, callback){
   var connection = new apn.Connection(options);
   var notification = new apn.Notification();
 
-  notification.alert = message || 'Hello world!';
-  notification.badge = options.badge || 0;
-  notification.sound = options.sound || 'ping.aiff';
+  notification.alert = message;
+  notification.badge = options.badge;
+  notification.sound = options.sound;
   notification.payload = options.payload || {};
   notification.expiry = options.expiry || Math.floor(Date.now() / 1000) + 3600;
 
